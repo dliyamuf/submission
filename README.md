@@ -10,3 +10,5 @@ pip install -r requirements.txt
 
 RUN STREAMLIT APP
 streamlit run dashboard.py
+
+This works use the data from https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data 
