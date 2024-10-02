@@ -91,7 +91,11 @@ with st.sidebar:
 
 #MEMBUAT HEADER
 st.header("BRAZILIAN E-COMMERCE DASHBOARD")
-
+st.write(
+'''
+hai kenapa susah banget
+'''
+)
 #MENAMBAHKAN SUBHEADER
 #membuat visualisasi daily orders
 # st.subheader('Daily Orders')
