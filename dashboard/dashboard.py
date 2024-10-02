@@ -5,7 +5,7 @@ import seaborn as sns
 #menyiapkan dataframe
 #membuat dataframe daily_orders
 def func_daily_orders(data):
-    daily_orders = data.resample(rule='D', on='order_purchase_timestamp').agg({
+    daily_orders = data.resample(rule='D', on='year_month').agg({
         'order_id_x': 'nunique',
         'price': 'sum'
     })
