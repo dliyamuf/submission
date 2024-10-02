@@ -74,8 +74,8 @@ main_data = pd.read_csv(url)
 # main_data.sort_values(by="year_month", inplace=True)
 # main_data.reset_index(inplace=True)
  
-for column in datetime_columns:
-    main_data[column] = pd.to_datetime(main_data[column])
+# for column in datetime_columns:
+#     main_data[column] = pd.to_datetime(main_data[column])
 
  
 with st.sidebar:
