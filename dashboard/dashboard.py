@@ -18,7 +18,8 @@ import seaborn as sns
 
 #membuat dataframe monthly orders
 def func_monthly_orders(data):
-    monthly_orders = data.groupby(['year_month', 'order_id_x']).agg({
+    monthly_orders = data.groupby('year_month').agg({
+        'order_id_x' = 'nunique'
         'price': 'sum'
     })
     monthly_orders = monthly_orders.reset_index()
