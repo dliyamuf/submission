@@ -71,7 +71,7 @@ main_data = pd.read_csv(url)
 
 #mengubah dan mengurutkan main_data berdasarkan datetime
 datetime_columns = ["order_purchase_timestamp"]
-main_data.sort_values(by="order_purchased_timestamp", inplace=True)
+main_data.sort_values(by="date", inplace=True)
 main_data.reset_index(inplace=True)
  
 for column in datetime_columns:
