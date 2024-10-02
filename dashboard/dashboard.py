@@ -5,8 +5,7 @@ import seaborn as sns
 #menyiapkan dataframe
 #membuat dataframe daily_orders
 def func_daily_orders(data):
-    daily_orders = data.resample(rule='D', on='year_month').agg({
-        'order_id_x': 'nunique',
+    daily_orders = data.groupby(['date', 'order_id_x']).agg({
         'price': 'sum'
     })
     daily_orders = daily_orders.reset_index()
@@ -19,8 +18,7 @@ def func_daily_orders(data):
 
 #membuat dataframe monthly orders
 def func_monthly_orders(data):
-    monthly_orders = data.resample(rule='M', on='order_purchase_timestamp').agg({
-        'order_id_x': 'nunique',
+    monthly_orders = data.groupby(['year_month', 'order_id_x']).agg({
         'price': 'sum'
     })
     monthly_orders = monthly_orders.reset_index()
