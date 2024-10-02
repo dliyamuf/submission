@@ -17,18 +17,18 @@ import seaborn as sns
 #     return daily_orders
 
 #membuat dataframe monthly orders
-def func_monthly_orders(data):
-    monthly_orders = data.groupby('year_month').agg({
-        'order_id_x' : 'nunique',
-        'price': 'sum'
-    })
-    monthly_orders = monthly_orders.reset_index()
-    monthly_orders.rename(columns={
-        'order_id_x': 'order_count',
-        'price': 'revenue'
-    }, inplace=True
-    )
-    return monthly_orders
+# def func_monthly_orders(data):
+#     monthly_orders = data.groupby('year_month').agg({
+#         'order_id_x' : 'nunique',
+#         'price': 'sum'
+#     })
+#     monthly_orders = monthly_orders.reset_index()
+#     monthly_orders.rename(columns={
+#         'order_id_x': 'order_count',
+#         'price': 'revenue'
+#     }, inplace=True
+#     )
+#     return monthly_orders
 
 #membuat dataframe top 5 product category
 def func_top_5_product(data):
@@ -84,7 +84,7 @@ with st.sidebar:
 
 #memanggil fungsi yang sudah dibuat
 # daily_orders = func_daily_orders(main_data)
-monthly_orders = func_monthly_orders(main_data)
+# monthly_orders = func_monthly_orders(main_data)
 top_5_product = func_top_5_product(main_data)
 by_state = func_by_state(main_data)
 rfm = func_rfm(main_data)
@@ -119,30 +119,30 @@ st.header("BRAZILIAN E-COMMERCE DASHBOARD")
  
 # st.pyplot(fig)
 #menambahkan visualisasi monthly orders
-st.subheader('Monthly Orders')
+# st.subheader('Monthly Orders')
  
-col1, col2 = st.columns(2)
+# col1, col2 = st.columns(2)
  
-with col1:
-    total_orders = monthly_orders.order_count.sum()
-    st.metric("Total orders", value=total_orders)
+# with col1:
+#     total_orders = monthly_orders.order_count.sum()
+#     st.metric("Total orders", value=total_orders)
  
-with col2:
-    total_revenue = monthly_orders.revenue.sum()
-    st.metric("Total Revenue", value=total_revenue)
+# with col2:
+#     total_revenue = monthly_orders.revenue.sum()
+#     st.metric("Total Revenue", value=total_revenue)
  
-fig, ax = plt.subplots(figsize=(16, 8))
-ax.plot(
-    monthly_orders["year_month"],
-    monthly_orders["order_count"],
-    marker='o', 
-    linewidth=2,
-    color="#f3584b"
-)
-ax.tick_params(axis='y', labelsize=20)
-ax.tick_params(axis='x', labelsize=15)
+# fig, ax = plt.subplots(figsize=(16, 8))
+# ax.plot(
+#     monthly_orders["year_month"],
+#     monthly_orders["order_count"],
+#     marker='o', 
+#     linewidth=2,
+#     color="#f3584b"
+# )
+# ax.tick_params(axis='y', labelsize=20)
+# ax.tick_params(axis='x', labelsize=15)
  
-st.pyplot(fig)
+# st.pyplot(fig)
 
 #menambahkan visualisasi top 5 product category
 colors = ["#78281f", "#d74d42", "#f3584b", "#f1948a", "#fadbd8"]
