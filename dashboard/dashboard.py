@@ -133,7 +133,7 @@ with col2:
  
 fig, ax = plt.subplots(figsize=(16, 8))
 ax.plot(
-    monthly_orders["order_purchase_timestamp"],
+    monthly_orders["year_month"],
     monthly_orders["order_count"],
     marker='o', 
     linewidth=2,
