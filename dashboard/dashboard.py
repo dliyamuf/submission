@@ -31,21 +31,21 @@ import seaborn as sns
 #     return monthly_orders
 
 #membuat dataframe top 5 product category
-def func_top_5_product(data):
-    monthly_order = data.groupby(['year_month', 'product_category_name_english']).agg({'price': 'sum'}).reset_index()
-    total_order_per_category = monthly_order.groupby('product_category_name_english')['price'].mean()
-    top_5_price_product = total_order_per_category.nlargest(5).index
-    top_5_product = monthly_order[monthly_order['product_category_name_english'].isin(top_5_price_product)]
-    return top_5_product
+# def func_top_5_product(data):
+#     monthly_order = data.groupby(['year_month', 'product_category_name_english']).agg({'price': 'sum'}).reset_index()
+#     total_order_per_category = monthly_order.groupby('product_category_name_english')['price'].mean()
+#     top_5_price_product = total_order_per_category.nlargest(5).index
+#     top_5_product = monthly_order[monthly_order['product_category_name_english'].isin(top_5_price_product)]
+#     return top_5_product
 
 #membuat dataframe persebaran pembeli berdasarkan state
-def func_by_state(df):
-    by_state = df.groupby(by="customer_state").customer_id.nunique().reset_index()
-    by_state.rename(columns={
-        "customer_id": "customer_count"
-    }, inplace=True)
+# def func_by_state(df):
+#     by_state = df.groupby(by="customer_state").customer_id.nunique().reset_index()
+#     by_state.rename(columns={
+#         "customer_id": "customer_count"
+#     }, inplace=True)
     
-    return by_state
+#     return by_state
 
 #membuat dataframe rfm analysis
 def func_rfm(df):
@@ -86,7 +86,7 @@ with st.sidebar:
 # daily_orders = func_daily_orders(main_data)
 # monthly_orders = func_monthly_orders(main_data)
 # top_5_product = func_top_5_product(main_data)
-by_state = func_by_state(main_data)
+# by_state = func_by_state(main_data)
 rfm = func_rfm(main_data)
 
 #MEMBUAT HEADER
@@ -152,23 +152,23 @@ st.header("BRAZILIAN E-COMMERCE DASHBOARD")
 # plt.xticks(rotation=90)
 
 #menambahkan visualisasi customer demographics
-st.subheader("Customer Demographics")
+# st.subheader("Customer Demographics")
  
-fig, ax = plt.subplots(figsize=(20, 10))
+# fig, ax = plt.subplots(figsize=(20, 10))
  
-sns.barplot(
-        y="customer_count", 
-        x="customer_state",
-        data=by_state.sort_values(by="customer_count", ascending=False),
-        palette=colors,
-        ax=ax
-    )
-ax.set_title("Number of Customer by State", loc="center", fontsize=50)
-ax.set_ylabel(None)
-ax.set_xlabel(None)
-ax.tick_params(axis='x', labelsize=35)
-ax.tick_params(axis='y', labelsize=30)
-st.pyplot(fig)
+# sns.barplot(
+#         y="customer_count", 
+#         x="customer_state",
+#         data=by_state.sort_values(by="customer_count", ascending=False),
+#         palette=colors,
+#         ax=ax
+#     )
+# ax.set_title("Number of Customer by State", loc="center", fontsize=50)
+# ax.set_ylabel(None)
+# ax.set_xlabel(None)
+# ax.tick_params(axis='x', labelsize=35)
+# ax.tick_params(axis='y', labelsize=30)
+# st.pyplot(fig)
  
 
 #menambahkan visualisasi RFM
