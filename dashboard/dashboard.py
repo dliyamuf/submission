@@ -70,9 +70,9 @@ url='https://drive.google.com/uc?id=' + url.split('/')[-2]
 main_data = pd.read_csv(url)
 
 #mengubah dan mengurutkan main_data berdasarkan datetime
-datetime_columns = ["order_purchase_timestamp"]
-main_data.sort_values(by="year_month", inplace=True)
-main_data.reset_index(inplace=True)
+# datetime_columns = ["order_purchase_timestamp"]
+# main_data.sort_values(by="year_month", inplace=True)
+# main_data.reset_index(inplace=True)
  
 for column in datetime_columns:
     main_data[column] = pd.to_datetime(main_data[column])
