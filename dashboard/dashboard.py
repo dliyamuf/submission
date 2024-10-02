@@ -20,7 +20,7 @@ rfm.columns = ["customer_id", "max_order_timestamp", "frequency", "monetary"]
 rfm["max_order_timestamp"] = rfm["max_order_timestamp"].dt.date
 recent_date = clean_data_order_product_english["order_purchase_timestamp"].dt.date.max()
 rfm["recency"] = rfm["max_order_timestamp"].apply(lambda x: (recent_date - x).days)
- 
+rfm.drop("max_order_timestamp", axis=1, inplace=True)
 with st.sidebar:
     # Menambahkan logo perusahaan
     st.image("https://files.klob.id/public/mig01/l32ovhf5/channels4_profile.jpg")
