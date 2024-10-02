@@ -85,7 +85,7 @@ with st.sidebar:
 #memanggil fungsi yang sudah dibuat
 # daily_orders = func_daily_orders(main_data)
 # monthly_orders = func_monthly_orders(main_data)
-top_5_product = func_top_5_product(main_data)
+# top_5_product = func_top_5_product(main_data)
 by_state = func_by_state(main_data)
 rfm = func_rfm(main_data)
 
@@ -145,11 +145,11 @@ st.header("BRAZILIAN E-COMMERCE DASHBOARD")
 # st.pyplot(fig)
 
 #menambahkan visualisasi top 5 product category
-colors = ["#78281f", "#d74d42", "#f3584b", "#f1948a", "#fadbd8"]
-plt.figure(figsize=(15, 8))
-sns.lineplot(data=top_5_product, x='year_month', y='price', hue='product_category_name_english', marker='o', linestyle='-')
-plt.title('Monthly Sales of Top 5 Product Category')
-plt.xticks(rotation=90)
+# colors = ["#78281f", "#d74d42", "#f3584b", "#f1948a", "#fadbd8"]
+# plt.figure(figsize=(15, 8))
+# sns.lineplot(data=top_5_product, x='year_month', y='price', hue='product_category_name_english', marker='o', linestyle='-')
+# plt.title('Monthly Sales of Top 5 Product Category')
+# plt.xticks(rotation=90)
 
 #menambahkan visualisasi customer demographics
 st.subheader("Customer Demographics")
