@@ -67,7 +67,7 @@ def func_rfm(df):
 #memanggil main_data.csv
 url='https://drive.google.com/file/d/1DJniWK38Abf0ZVhA9T014nqjH3ZT1EY8/view?usp=sharing'
 url='https://drive.google.com/uc?id=' + url.split('/')[-2]
-main_data = pd.read_csv('url')
+main_data = pd.read_csv(url)
 
 #mengubah dan mengurutkan main_data berdasarkan datetime
 datetime_columns = ["order_purchase_timestamp"]
