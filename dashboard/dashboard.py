@@ -8,7 +8,7 @@ url='https://drive.google.com/file/d/1DJniWK38Abf0ZVhA9T014nqjH3ZT1EY8/view?usp=
 url='https://drive.google.com/uc?id=' + url.split('/')[-2]
 main_data = pd.read_csv(url)
 
-ef func_by_state(df):
+def func_by_state(df):
     by_state = df.groupby(by="customer_state").customer_id.nunique().reset_index()
     by_state.rename(columns={
         "customer_id": "customer_count"
